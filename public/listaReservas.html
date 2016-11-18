@@ -1,0 +1,209 @@
+<!--<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Prueba aaaa</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/funciones.js"></script>
+</head>
+
+<body> -->
+<br><br><br>
+<div class="btn-toolbar">
+    <button class="btn btn-primary" id="btnCrearReserva" onclick="crearReserva()">Crear Reserva</button>
+    <button class="btn btn-primary" id="btnBuscarPorUser" onclick="buscarPorUsuario()">Busca por usuario</button>
+
+</div>
+<div id="principal" class="well">
+    <table class="table" id="tablaReservas">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>ID Usuario</th>
+            <th>E-mail</th>
+            <th>Pistas</th>
+            <th>Fecha de reserva</th>
+            <th>Tipo de reserva</th>
+            <th style="width: 36px;"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td  class="celdaIdReserva"></td>
+            <td class="celdaIdUserReserva" ></td>
+            <td class="celdaEmailReserva"></td>
+            <td class="celdaPistasReserva"></td>
+            <td class="celdaFechaReserva"></td>
+            <td class="celdaTipoReserva"></td>
+
+        </tr>
+
+        </tbody>
+    </table>
+
+
+
+</div>
+
+<!-- Modal editar reserva -->
+<div id="VentanaModalEditarReserva" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+                <form role="form">
+                    <div class="form-group">
+                        <label for="inputReservaEditarIdUser">Id Usuario</label>
+                        <input name="id Usuario" type="text" class="form-control" id="inputReservaEditarIdUser"
+                               placeholder="Introduce un id">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputReservaEditarNombre">Nombre</label>
+                        <input name="nombre" type="text" class="form-control" id="inputReservaEditarNombre"
+                               placeholder="Introduce un nombre">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputReservaEditarEmail">Email</label>
+                        <input name="email" type="email" class="form-control" id="inputReservaEditarEmail"
+                               placeholder="Introduce tu email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputReservaEditarPistas">Pistas</label>
+                        <input name="pistas" type="text" class="form-control" id="inputReservaEditarPistas"
+                               placeholder="Introduce tu email">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputReservaEditarFecha">Fecha</label>
+                        <input name="fecha" type="text" class="form-control" id="inputReservaEditarFecha"
+                               placeholder="Introduce una fecha de reserva">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputReservaEditarTipo">Tipo</label>
+                        <input name="tipo" type="text" class="form-control" id="inputReservaEditarTipo"
+                               placeholder="Introduce el tipo de reserva">
+                    </div>
+                    <button type="button" id="btnActualizarReserva" class="btn btn-default">OK</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Modal para crear reserva -->
+<div id="VentanaCrearReserva" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+                <form role="form">
+                    <div class="form-group">
+                        <label for="inputReservaCrearIdUser">Id usuario</label>
+                        <input name="apellidos" type="text" class="form-control" id="inputReservaCrearIdUser"
+                               placeholder="Introduce unos id de usuario">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputReservaCrearNombre">Nombre usuario</label>
+                        <input name="nombre" type="text" class="form-control" id="inputReservaCrearNombre"
+                               placeholder="Introduce un nombre">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputReservaCrearEmail">Email</label>
+                        <input name="email" type="email" class="form-control" id="inputReservaCrearEmail"
+                               placeholder="Introduce un email">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputReservaCrearPistas">Pistas</label>
+                        <input name="pistas" type="text" class="form-control" id="inputReservaCrearPistas"
+                               placeholder="Introduce las pistas">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputReservaCrearTipo">Tipo</label>
+                        <input name="tipo" type="text" class="form-control" id="inputReservaCrearTipo" value="fija" readonly="readonly">
+                    </div>
+                    <div class="form-group">
+                        <label for="fecha">Fecha</label>
+                        <input type="text" name="fecha" id="fecha" class="text ui-widget-content ui-corner-all" />
+                    </div>
+                    <button type="button" id="botonModalCrearReserva" class="btn btn-default">OK</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Modal borrar usuario-->
+<div id="VentanaModalBorrarReserva" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Borrar Reserva</h4>
+            </div>
+            <div class="modal-body">
+                <h4>¿Esta seguro de que quiere borrar la reserva?</h4>
+                <button type="button" id="confirmBorrarReserva">Si</button>
+                <button type="button" id="cancelBorrarReserva">No</button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Modal -->
+<div id="modalMensajesReserva" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-body" id="mensajeAlertaReserva">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" id="cerrarMensaje" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</div>
+</div>
+
+
+
+<!--
+
+</body>
+
+</html>
+
+-->

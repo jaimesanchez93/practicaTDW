@@ -1,0 +1,215 @@
+<!--<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Prueba aaaa</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/funciones.js"></script>
+</head>
+
+<body> -->
+
+<div class="btn-toolbar">
+    <button class="btn btn-primary" id="btnCrearUser" onclick="crearUsuario()">Crear usuario</button>
+
+</div>
+<div id="principal" class="well">
+    <table class="table" id="tablaUsuarios">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Email</th>
+            <th style="width: 36px;"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td  class="celdaId"></td>
+            <td class="celdaNombre" ></td>
+            <td class="celdaApellido"></td>
+            <td class="celdaEmail"></td>
+
+        </tr>
+
+        </tbody>
+    </table>
+
+
+
+</div>
+
+<!-- Modal -->
+<div id="VentanaModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+           <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+                <form role="form">
+                    <div class="form-group">
+                        <label for="inputNombre">Nombre</label>
+                        <input name="email" type="email" class="form-control" id="inputNombre"
+                               placeholder="Introduce tu email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputApellidos">Apellidos</label>
+                        <input name="email" type="email" class="form-control" id="inputApellidos"
+                               placeholder="Introduce tu email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputEmail">Email</label>
+                        <input name="email" type="email" class="form-control" id="inputEmail"
+                               placeholder="Introduce tu email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="selectEditarActivo">Activo</label>
+                        <!--<input name="email" type="email" class="form-control" id="inputActivo"
+                               placeholder="Introduce tu email"> -->
+                        <select name="Activo" class="form-control" id="selectEditarActivo">
+                            <option value="0">Inactivo</option>
+                            <option value="1">Activo</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="selectEditarRol">Rol</label>
+                       <!-- <input name="email" type="email" class="form-control" id="inputRol"
+                               placeholder="Introduce tu email"> -->
+                        <select name="Rol" class="form-control" id="selectEditarRol">
+                            <option value="usuario">Usuario</option>
+                            <option value="admin">Admin</option>
+                        </select>
+                    </div>
+                        <button type="button" id="btnActualizar" class="btn btn-default">OK</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Modal -->
+<div id="VentanaCrearUser" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+                <form role="form">
+                    <div class="form-group">
+                        <label for="inputCrearNombre">Nombre</label>
+                        <input name="email" type="email" class="form-control" id="inputCrearNombre"
+                               placeholder="Introduce un nombre">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputCrearApellidos">Apellidos</label>
+                        <input name="email" type="email" class="form-control" id="inputCrearApellidos"
+                               placeholder="Introduce unos apellidos">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputCrearEmail">Email</label>
+                        <input name="email" type="email" class="form-control" id="inputCrearEmail"
+                               placeholder="Introduce un email">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputCrearPassword">Contraseña</label>
+                        <input name="password" type="password" class="form-control" id="inputCrearPassword"
+                               placeholder="Introduce una contraseña">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="selectCrearActivo">Activo</label>
+                      <!--  <input name="email" type="email" class="form-control" id="inputCrearActivo"
+                               placeholder="Introduce si está activo(1) o inactivo(0) "> -->
+                        <select name="activo" class="form-control" id="selectCrearActivo">
+                            <option value="0">Inactivo</option>
+                            <option value="1">Activo</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="selectCrearRol">Rol</label>
+                       <!-- <input name="email" type="email" class="form-control" id="inputCrearRol"
+                               placeholder="Introduce el rol(usuario o admin)"> -->
+                        <select name="rol" class="form-control" id="selectCrearRol">
+                            <option value="usuario">Usuario</option>
+                            <option value="admin">admin</option>
+                        </select>
+                    </div>
+                    <button type="button" id="btnCrearUsuario" class="btn btn-default">OK</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div id="ModalBorrarUser" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+                <h4>¿Esta seguro de que quiere borrar al jugador?</h4>
+                <button type="button" id="confirmBorrar">Si</button>
+                <button type="button" id="cancelBorrar">No</button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div id="modalMensajes" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-body" id="mensajeAlerta">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" id="cerrarMensaje" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+<!--
+
+</body>
+
+</html>
+
+-->

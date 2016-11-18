@@ -1,0 +1,77 @@
+
+/* CSS */
+
+
+
+
+/* container */
+
+#container div{
+    display: inline-block;
+    position: relative;
+}
+
+#menuLat{
+
+ width: 30%;
+ height: 80%;
+ margin-top: 5%;
+ float: left;
+ margin-left: 5%;
+    overflow: auto;
+}
+
+.addJugador{
+   background-color: rgba(0, 0, 0, 0.14);
+    text-align: center;
+
+
+}
+
+#tablaJugadores, #tablaJugadores td{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.nombreJugador{
+    width: 90%;
+}
+
+#pistas{
+    margin-left: 10%;
+    width: 50%;
+    float: right;
+
+}
+
+#tablaPistas{
+
+    border-collapse: separate;
+    border-spacing: 40px;
+}
+
+#tablaPistas tr td{
+    /*margin-left: 40px; */
+
+}
+
+.court{
+    width: 200px;
+    height: 100px;
+    min-height: 100px;
+    background-image: url('../img/paddle.png');
+    background-repeat: no-repeat;
+}
+
+.iconoJugador{
+    margin-left: 10%;
+}
+
+.huecoJugador{
+    visibility: hidden;
+
+}
+
+h4:hover {
+}
+
